@@ -1,0 +1,30 @@
+.keypad {
+  display: flex;
+  user-select: none;
+}
+
+.keypad__numbers {
+  background: #373d45;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  width: 80%;
+}
+
+.keypad__number-grid {
+  flex: 33.33333%;
+  height: 60px;
+}
+
+.keypad__functions {
+  background: #196b98;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap-reverse;
+  width: 20%;
+}
+
+.keypad__function-grid {
+  flex: 1;
+  height: 60px;
+}

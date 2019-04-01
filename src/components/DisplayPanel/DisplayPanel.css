@@ -1,0 +1,10 @@
+.display-panel {
+  background-color: #f5f5f5;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  font-size: 3rem;
+  min-height: 160px;
+  padding: 20px;
+  width: 100%;
+  word-break: break-all;
+}
