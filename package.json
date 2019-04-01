@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --collectCoverage",
     "eject": "react-scripts eject",
     "start": "react-scripts build; serve -s build"
   },
