@@ -4,6 +4,7 @@
 }
 
 .keypad__numbers {
+  align-items: self-start;
   background: #373d45;
   display: flex;
   flex-direction: row;

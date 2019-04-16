@@ -146,4 +146,17 @@ describe('Calculator (integration)', () => {
 
     expect(wrapper.find('.qa-display-panel').text()).toEqual('');
   });
+
+  it('handles dividing by zero', () => {
+    const wrapper = mount(
+      <Calculator />,
+    );
+    getKeyFromKeypad('5', wrapper).simulate('click');
+    getKeyFromKeypad('0', wrapper).simulate('click');
+    getKeyFromKeypad('/', wrapper).simulate('click');
+    getKeyFromKeypad('0', wrapper).simulate('click');
+    getKeyFromKeypad('=', wrapper).simulate('click');
+
+    expect(wrapper.find('.qa-display-panel').text()).toEqual('Not a number');
+  });
 });

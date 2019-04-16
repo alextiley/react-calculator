@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
 import DisplayPanel from '../DisplayPanel/DisplayPanel';
+import Header from '../Header/Header';
 import Keypad from '../Keypad/Keypad';
 
 import './Calculator.css';
 
 const Calculator = () => {
+  const [hasError, setHasError] = useState(false);
   const [commands, setCommands] = useState([]);
   const prevCommand = commands[commands.length - 1];
 
   return (
     <div className="calculator">
-      <DisplayPanel text={commands.join('')} />
+      <DisplayPanel text={hasError ? 'Not a number' : commands.join('')} />
       <Keypad
         handleClear={() => {
           setCommands([]);
+          setHasError(false);
         }}
         handleCalculation={() => {
-          setCommands([
-            // eslint-disable-next-line
-            eval(commands.join('')).toString()
-          ]);
+          const result = eval(commands.join(''));
+
+          if (Number.isFinite(result)) {
+            setHasError(false);
+            setCommands([result.toString()]);
+          } else {
+            setHasError(true);
+            setCommands([]);
+          }
         }}
         handleCommand={(command) => {
-          // @todo Improve how commands are added
+          setHasError(false);
           setCommands([ ...commands, command ]);
         }}
         isArithmeticEnabled={!isNaN(Number(prevCommand))}
