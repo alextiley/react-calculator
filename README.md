@@ -34,3 +34,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+
+## Potential improvements
+
+* Change how state is held
+  -> Store string groups on an array in state, e.g. "groups" => "3.1" (join whenever another number or decimal is pressed)
+  -> Store a single operator function on another state property. Whenever one of [+,-,*,/] is pressed, the value is overwritten.
+  -> When equals is pressed, parse both groups as numbers. Switch on the operator and call a Math function (don't use eval). Clear operator, reset groups to the [result].
+
+* Remove use of the dangerous eval() method, either by performing calculations in code, or by using a library such as Big.js.
+
+* Consider removing array of arithmetic functions, instead hard-code buttons and assign specific handlers to each.
+
+* Don't restrict which buttons can be pressed. A physical calculator can't possibly "disable" a button, it would instead register that command instead.
+  -> Handle scenarios where multiple operators are pressed in succession
+  
+* Allow octal numbers (parseInt on any input), e.g. 01 + 01
+
