@@ -9,10 +9,12 @@ const Calculator = () => {
   const [hasError, setHasError] = useState(false);
   const [commands, setCommands] = useState([]);
   const prevCommand = commands[commands.length - 1];
+  const displayText = hasError ? 'Not a number' : commands.join('');
 
   return (
     <div className="calculator">
-      <DisplayPanel text={hasError ? 'Not a number' : commands.join('')} />
+      <Header />
+      <DisplayPanel text={displayText} />
       <Keypad
         handleClear={() => {
           setCommands([]);
